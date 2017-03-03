@@ -73,7 +73,7 @@ public class NathDB {
 		// Make an iteration on the whole database
 		for (Entry<String, HashMap<String, Integer>> entry : db.entrySet()) {
 			
-			JSon += "\"" + entry.getKey().replaceAll("\"", "\\\\\"") + "\":{\"c\":" + dbCount.get(entry.getKey()) + ",\"l\":{";
+			JSon += "\"" + entry.getKey().replaceAll("\\\"", "\\\\\"") + "\":{\"c\":" + dbCount.get(entry.getKey()) + ",\"l\":{";
 			
 			// Iterate on the statistics
 			for (Entry<String, Integer> subEntry : db.get(entry.getKey()).entrySet()) {
