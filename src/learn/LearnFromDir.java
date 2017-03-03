@@ -49,7 +49,7 @@ public class LearnFromDir {
 			byte[] data = new byte[(int) f.length()];
 			fis.read(data);
 			fis.close();
-			return new String(data, "UTF-8");
+			return new String(data);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "";
