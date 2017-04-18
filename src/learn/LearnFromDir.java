@@ -12,32 +12,32 @@ public class LearnFromDir {
 		
 		// Scan all files in directory
 		File actual = new File(path);
-        for( File f : actual.listFiles()) {
-        	
-        	// Check extension
-        	if (f.getAbsolutePath().endsWith(".txt")) {
-        	
-	        	System.out.println("Reading " + f.getAbsolutePath());
-	        	
-	        	// Read the file
-	        	String content = readFullFile(f);
-	        	
-	        	// Split the words
-	        	String[] words = content.split(" ");
-	        	
-	        	// Add them to database
-	        	String lastWord = NathDB.START;
-	        	for (String word : words) {
-	        		db.add(lastWord, word);
-	        		lastWord = word + ""; // We add a empty string to prevent that lastWord became a reference to word
-	        	}
-	        	db.add(lastWord, NathDB.END);
-	        	
-        	}
-        	
-        }
-    	
-    	System.out.println(db.getFullCount() + " correspondences found.");
+		for( File f : actual.listFiles()) {
+
+			// Check extension
+			if (f.getAbsolutePath().endsWith(".txt")) {
+
+				System.out.println("Reading " + f.getAbsolutePath());
+
+				// Read the file
+				String content = readFullFile(f);
+
+				// Split the words
+				String[] words = content.split(" ");
+
+				// Add them to database
+				String lastWord = NathDB.START;
+				for (String word : words) {
+					db.add(lastWord, word);
+					lastWord = word + ""; // We add a empty string to prevent that lastWord became a reference to word
+				}
+				db.add(lastWord, NathDB.END);
+
+			}
+
+		}
+
+		System.out.println(db.getFullCount() + " correspondences found.");
 		
 		return db;
 	}
